@@ -188,6 +188,7 @@ When ready to add database support:
 
 2. **Update `application.properties`:**
    ```properties
+   server.port=8080
    spring.datasource.url=jdbc:mariadb://localhost:3306/student_db?createDatabaseIfNotExist=true
    spring.datasource.username=your_username
    spring.datasource.password=your_password
