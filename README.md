@@ -222,13 +222,13 @@ When ready to add database support:
    ```java
    package com.student.registration.student_registration_backend.controller;
 
-import com.student.registration.student_registration_backend.model.User;
-import com.student.registration.student_registration_backend.repository.UserRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+    import com.student.registration.student_registration_backend.model.User;
+    import com.student.registration.student_registration_backend.repository.UserRepository;
+    import org.springframework.http.HttpStatus;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+   import java.util.List;
 
 @RestController
 @RequestMapping("/api")
