@@ -193,10 +193,18 @@ When ready to add database support:
    spring.datasource.password=your_password
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
+   frontend.url=http://3.93.154.213:80
+
    ```
 
 3. **Restore JPA annotations in User.java:**
    ```java
+   import jakarta.persistence.Entity;
+   import jakarta.persistence.Id;
+   import jakarta.persistence.GeneratedValue;
+   import jakarta.persistence.GenerationType;
+
+   import lombok.Data;
    @Entity
    @Data
    public class User {
