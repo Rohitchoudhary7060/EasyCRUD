@@ -199,20 +199,29 @@ When ready to add database support:
 
 3. **Restore JPA annotations in User.java:**
    ```java
-   import jakarta.persistence.Entity;
-   import jakarta.persistence.Id;
-   import jakarta.persistence.GeneratedValue;
-   import jakarta.persistence.GenerationType;
+   package com.student.registration.student_registration_backend.model;
+    import jakarta.persistence.Entity;
+    import jakarta.persistence.Id;
+    import jakarta.persistence.GeneratedValue;
+    import jakarta.persistence.GenerationType;
 
-   import lombok.Data;
-   @Entity
-   @Data
-   public class User {
-       @Id
-       @GeneratedValue(strategy = GenerationType.IDENTITY)
-       private Long id;
-       // ... other fields
-   }
+    import lombok.Data;
+    @Entity
+    @Data // This annotation from Lombok automatically generates getters, setters, and other methods.
+    public class User {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+        private Long id;
+
+        private String name;
+        private String email;
+        private String course;
+        private String studentClass;
+        private Double percentage;
+        private String branch;
+        private String mobileNumber;
+    }
    ```
 
 4. **Recreate /student_registration_backend/repository/UserRepository.java:**
