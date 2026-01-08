@@ -191,7 +191,7 @@ When ready to add database support:
    spring.datasource.url=jdbc:mariadb://localhost:3306/student_db
    spring.datasource.username=your_username
    spring.datasource.password=your_password
-   spring.jpa.hibernate.ddl-auto=validate
+   spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
    ```
 
@@ -228,38 +228,38 @@ When ready to add database support:
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.*;
 
-   import java.util.List;
+    import java.util.List;
 
-@RestController
-@RequestMapping("/api")
-public class UserController {
+    @RestController
+    @RequestMapping("/api")
+    public class UserController {
 
-    private final UserRepository userRepository;
+        private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+        public UserController(UserRepository userRepository) {
+            this.userRepository = userRepository;
+        }
 
-    @PostMapping("/register")
-    public User registerUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
+        @PostMapping("/register")
+        public User registerUser(@RequestBody User user) {
+            return userRepository.save(user);
+        }
 
-    @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+        @GetMapping("/users")
+        public List<User> getAllUsers() {
+            return userRepository.findAll();
+        }
 
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
-            return ResponseEntity.ok("User deleted successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        @DeleteMapping("/users/{id}")
+        public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+            if (userRepository.existsById(id)) {
+                userRepository.deleteById(id);
+                return ResponseEntity.ok("User deleted successfully");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            }
         }
     }
-}
 ```
 
 ## 🔧 Configuration
