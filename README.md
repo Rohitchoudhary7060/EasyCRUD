@@ -218,7 +218,7 @@ When ready to add database support:
    public interface UserRepository extends JpaRepository<User, Long> {
    }
    ```
-5. ** If we use database replace the content of usercontroller.java
+5. ** If we use database replace the content of usercontroller.java:**
    ```java
    package com.student.registration.student_registration_backend.controller;
 
